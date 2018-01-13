@@ -12,18 +12,31 @@ public class UserService implements IUserService {
 	@Autowired
 	private UserRepository repository;
 	
-	
 	@Override
 	public User findById(Long id) {
 		return repository.findOne(id);
 	}
 
 	@Override
-	public void saveOrUpdate(User book) throws Exception {
-		if (book.getId() != null && !isExists(book.getId())) {
-			throw new Exception("not found");
+	public User findByEmail(String email) {
+		try {
+			return repository.findByEmail(email);
+		} catch (Exception ex) {
+			return null;
 		}
-		repository.save(book);
+	}
+	
+	@Override
+	public Boolean isExistsByEmail(String email) {
+		return findByEmail(email) != null ? true : false;
+	}
+
+	@Override
+	public void saveOrUpdate(User user) throws Exception {
+		if (user.getId() != null && !isExists(user.getId())) {
+			throw new IllegalArgumentException("05");
+		}
+		repository.save(user);
 	}
 	
 	private Boolean isExists(Long id) {

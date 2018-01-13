@@ -9,14 +9,14 @@
      
     <changeSet author="rpramadhan" id="1.0">
     	
-    	<createTable tableName="user">
+    	<createTable tableName="user_maintenance">
             <column name="pk_user" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="email" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="fullName" type="VARCHAR(255)">
+            <column name="full_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="password" type="VARCHAR(255)">

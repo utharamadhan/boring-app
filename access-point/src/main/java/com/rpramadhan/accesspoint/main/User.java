@@ -1,17 +1,7 @@
-package com.rpramadhan.usermanagement.model;
+package com.rpramadhan.accesspoint.main;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-@Entity(name="user")
-@Table(name="user_maintenance")
 public class User implements Serializable {
 	/**
 	 * 
@@ -20,19 +10,12 @@ public class User implements Serializable {
 	
 	private User() {}
 	
-	@Id
-	@SequenceGenerator(name = "user_maintenance_pk_user_seq", sequenceName = "user_maintenance_pk_user_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_maintenance_pk_user_seq")
-	@Column(name = "pk_user", unique = true, nullable = false)
 	private Long id;
 	
-	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "full_name")
 	private String fullName;
 
-	@Column(name = "password")
 	private String password;
 
 	public Long getId() {
